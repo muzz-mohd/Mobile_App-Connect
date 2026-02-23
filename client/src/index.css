@@ -35,68 +35,68 @@
 }
 
 :root {
-  /* Elegant light theme inspired by Nusuk */
-  --background: 0 0% 98%;
-  --foreground: 220 20% 15%;
+  /* Nusuk-inspired color palette: Warm, premium, neutral */
+  --background: 30 20% 98%;
+  --foreground: 20 20% 12%;
   
   --card: 0 0% 100%;
-  --card-foreground: 220 20% 15%;
+  --card-foreground: 20 20% 12%;
   
   --popover: 0 0% 100%;
-  --popover-foreground: 220 20% 15%;
+  --popover-foreground: 20 20% 12%;
   
-  /* Rich emerald green as primary */
-  --primary: 158 64% 35%;
+  /* Deep Navy/Slate Primary */
+  --primary: 220 30% 15%;
   --primary-foreground: 0 0% 100%;
   
-  /* Soft gold as secondary */
-  --secondary: 42 63% 58%;
+  /* Muted Gold/Tan Secondary */
+  --secondary: 35 30% 50%;
   --secondary-foreground: 0 0% 100%;
   
-  --muted: 210 20% 96%;
-  --muted-foreground: 215 15% 45%;
+  --muted: 30 20% 95%;
+  --muted-foreground: 20 10% 45%;
   
-  --accent: 158 64% 95%;
-  --accent-foreground: 158 64% 35%;
+  --accent: 35 30% 92%;
+  --accent-foreground: 35 30% 30%;
   
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 100%;
 
-  --border: 214 32% 91%;
-  --input: 214 32% 91%;
-  --ring: 158 64% 35%;
+  --border: 30 10% 90%;
+  --input: 30 10% 90%;
+  --ring: 220 30% 15%;
 
-  --radius: 1rem;
+  --radius: 1.25rem;
 }
 
 .dark {
-  --background: 220 20% 10%;
+  --background: 220 20% 8%;
   --foreground: 210 20% 98%;
   
-  --card: 220 20% 14%;
+  --card: 220 20% 12%;
   --card-foreground: 210 20% 98%;
   
-  --popover: 220 20% 14%;
+  --popover: 220 20% 12%;
   --popover-foreground: 210 20% 98%;
   
-  --primary: 158 64% 45%;
-  --primary-foreground: 0 0% 100%;
+  --primary: 210 20% 98%;
+  --primary-foreground: 220 20% 8%;
   
-  --secondary: 42 63% 58%;
+  --secondary: 35 30% 58%;
   --secondary-foreground: 0 0% 100%;
   
-  --muted: 220 20% 18%;
+  --muted: 220 20% 15%;
   --muted-foreground: 215 15% 70%;
   
-  --accent: 158 64% 20%;
-  --accent-foreground: 158 64% 95%;
+  --accent: 220 20% 20%;
+  --accent-foreground: 210 20% 98%;
   
   --destructive: 0 62% 30%;
   --destructive-foreground: 0 0% 100%;
   
-  --border: 220 20% 20%;
-  --input: 220 20% 20%;
-  --ring: 158 64% 45%;
+  --border: 220 20% 18%;
+  --input: 220 20% 18%;
+  --ring: 210 20% 98%;
 }
 
 @layer base {
@@ -112,18 +112,17 @@
   }
 }
 
-/* Custom Utilities for mobile feel */
 @layer utilities {
   .glass-nav {
-    @apply bg-white/80 backdrop-blur-lg border-t border-white/20 shadow-[0_-8px_30px_-15px_rgba(0,0,0,0.05)];
+    @apply bg-white/90 backdrop-blur-xl border-t border-slate-200/50 shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.08)];
   }
   
-  .glass-card {
-    @apply bg-white/70 backdrop-blur-md border border-white/40 shadow-sm;
+  .nusuk-card {
+    @apply bg-white rounded-[2.5rem] border border-slate-100 shadow-[0_8px_30px_rgb(0,0,0,0.04)] transition-all active:scale-[0.98];
   }
 
   .smooth-shadow {
-    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05), 0 0 3px rgba(0,0,0,0.02);
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.04), 0 0 5px rgba(0,0,0,0.01);
   }
   
   .hide-scrollbar::-webkit-scrollbar {
