@@ -5,14 +5,23 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 
+import { MobileLayout } from "./components/layout/MobileLayout";
+import Home from "./pages/Home";
+import Timings from "./pages/Timings";
+import Community from "./pages/Community";
+import Programs from "./pages/Programs";
+
 function Router() {
   return (
-    <Switch>
-      {/* Add pages below */}
-      {/* <Route path="/" component={Home}/> */}
-      {/* Fallback to 404 */}
-      <Route component={NotFound} />
-    </Switch>
+    <MobileLayout>
+      <Switch>
+        <Route path="/" component={Home} />
+        <Route path="/timings" component={Timings} />
+        <Route path="/community" component={Community} />
+        <Route path="/programs" component={Programs} />
+        <Route component={NotFound} />
+      </Switch>
+    </MobileLayout>
   );
 }
 
