@@ -1,8 +1,28 @@
 import { motion } from "framer-motion";
 import { format } from "date-fns";
-import { Bell, ChevronRight, Calendar, Info, MapPin, Heart, QrCode, Clock } from "lucide-react";
-import patternBg from "@/assets/images/pattern-bg.png";
-import { Link } from "wouter";
+import { 
+  Bell, 
+  ChevronRight, 
+  Calendar, 
+  Info, 
+  MapPin, 
+  Heart, 
+  QrCode, 
+  Clock,
+  Compass,
+  AlertCircle,
+  BookOpen,
+  Hash
+} from "lucide-react";
+
+const services = [
+  { id: 'tasbeeh', label: 'Tasbeeh', icon: Hash, color: 'text-blue-600', bgColor: 'bg-blue-50' },
+  { id: 'duas', label: 'Duas', icon: BookOpen, color: 'text-emerald-600', bgColor: 'bg-emerald-50' },
+  { id: 'donations', label: 'Donations', icon: Heart, color: 'text-rose-500', bgColor: 'bg-rose-50' },
+  { id: 'sos', label: 'SOS', icon: AlertCircle, color: 'text-red-600', bgColor: 'bg-red-50' },
+  { id: 'qibla', label: 'Qibla Direction', icon: Compass, color: 'text-amber-600', bgColor: 'bg-amber-50' },
+  { id: 'events', label: 'Islamic Events', icon: Calendar, color: 'text-indigo-600', bgColor: 'bg-indigo-50' },
+];
 
 export default function Home() {
   const today = new Date();
@@ -150,24 +170,29 @@ export default function Home() {
           </div>
         </motion.div>
 
-        {/* Quick Access Grid - 2025 Style */}
-        <section className="pb-10">
-           <div className="grid grid-cols-2 gap-4">
-              <div className="bg-white p-6 rounded-[2.25rem] border border-slate-100 shadow-sm relative overflow-hidden group active:scale-95 transition-transform">
-                <div className="w-12 h-12 bg-rose-50 text-rose-500 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-rose-100 transition-colors">
-                  <Heart size={22} className="group-hover:scale-110 transition-transform" />
+        {/* Services Grid Section */}
+        <section className="pb-4">
+          <div className="flex justify-between items-center mb-5 px-1">
+            <h3 className="text-lg font-bold text-slate-900">Services</h3>
+            <span className="text-[10px] font-bold text-secondary uppercase tracking-widest">Discover More</span>
+          </div>
+          <div className="grid grid-cols-2 gap-4">
+            {services.map((service) => (
+              <motion.button
+                key={service.id}
+                whileTap={{ scale: 0.96 }}
+                className="bg-white p-6 rounded-[20px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-100 flex flex-col items-center justify-center text-center aspect-square transition-colors active:bg-slate-50 group"
+                data-testid={`home-service-card-${service.id}`}
+              >
+                <div className={`w-14 h-14 ${service.bgColor} rounded-2xl flex items-center justify-center mb-4 transition-transform group-hover:scale-110`}>
+                  <service.icon size={28} className={service.color} />
                 </div>
-                <h5 className="font-bold text-slate-900 text-sm">Donations</h5>
-                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Direct Zakat</p>
-              </div>
-              <div className="bg-white p-6 rounded-[2.25rem] border border-slate-100 shadow-sm relative overflow-hidden group active:scale-95 transition-transform">
-                <div className="w-12 h-12 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center mb-4 group-hover:bg-amber-100 transition-colors">
-                  <Info size={22} className="group-hover:rotate-12 transition-transform" />
-                </div>
-                <h5 className="font-bold text-slate-900 text-sm">Guides</h5>
-                <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mt-1">Rules & Info</p>
-              </div>
-           </div>
+                <span className="text-sm font-bold text-slate-800 leading-tight">
+                  {service.label}
+                </span>
+              </motion.button>
+            ))}
+          </div>
         </section>
       </div>
     </div>
