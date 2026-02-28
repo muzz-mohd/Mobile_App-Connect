@@ -10,6 +10,7 @@ import Home from "./pages/Home";
 import Timings from "./pages/Timings";
 import Community from "./pages/Community";
 import Programs from "./pages/Programs";
+import Services from "./pages/Services";
 
 function Router() {
   return (
@@ -18,6 +19,7 @@ function Router() {
         <Route path="/" component={Home} />
         <Route path="/timings" component={Timings} />
         <Route path="/community" component={Community} />
+        <Route path="/services" component={Services} />
         <Route path="/programs" component={Programs} />
         <Route component={NotFound} />
       </Switch>

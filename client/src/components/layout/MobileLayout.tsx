@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { Home, Clock, Users, BookOpen } from "lucide-react";
+import { Home, Clock, Users, BookOpen, LayoutGrid } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface MobileLayoutProps {
@@ -13,6 +13,7 @@ export function MobileLayout({ children }: MobileLayoutProps) {
     { icon: Home, label: "Home", path: "/" },
     { icon: Clock, label: "Timings", path: "/timings" },
     { icon: Users, label: "Community", path: "/community" },
+    { icon: LayoutGrid, label: "Services", path: "/services" },
     { icon: BookOpen, label: "Programs", path: "/programs" },
   ];
 
