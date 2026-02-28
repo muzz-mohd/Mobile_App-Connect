@@ -76,37 +76,6 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Active Permit Widget - NEW in 2025 UI */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="bg-white rounded-[2.5rem] border border-slate-100 shadow-sm p-6 relative overflow-hidden"
-        >
-          <div className="absolute top-0 right-0 p-4">
-            <span className="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-3 py-1 rounded-full border border-emerald-100">Active Permit</span>
-          </div>
-          <div className="flex items-center gap-4 mb-6">
-            <div className="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center text-emerald-600">
-              <QrCode size={28} />
-            </div>
-            <div>
-              <h3 className="font-bold text-slate-900 text-lg">Rawdah Entry</h3>
-              <p className="text-xs text-slate-500 font-medium flex items-center gap-1.5">
-                <Clock size={12} /> Starts in 45:12
-              </p>
-            </div>
-          </div>
-          <div className="flex justify-between items-center py-4 border-t border-slate-50">
-            <div>
-              <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Gate Info</p>
-              <p className="text-sm font-bold text-slate-800">Gate 37 (Men)</p>
-            </div>
-            <button className="bg-slate-900 text-white px-5 py-2.5 rounded-xl text-xs font-bold active:scale-95 transition-transform">
-              View Permit
-            </button>
-          </div>
-        </motion.div>
-
         {/* Main Services Grid - nusuk style */}
         <section>
           <div className="flex justify-between items-center mb-5 px-1">
