@@ -15,6 +15,7 @@ import {
   Hash
 } from "lucide-react";
 import patternBg from "@/assets/images/pattern-bg.png";
+import { Link, useLocation } from "wouter";
 
 const services = [
   { id: 'tasbeeh', label: 'Tasbeeh', icon: Hash, color: 'text-blue-600', bgColor: 'bg-blue-50' },
