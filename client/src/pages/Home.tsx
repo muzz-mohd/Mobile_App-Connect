@@ -27,23 +27,26 @@ const services = [
 
 export default function Home() {
   const today = new Date();
+  const [, setLocation] = useLocation();
   
   const mainServices = [
     { 
-      title: "Umrah", 
-      icon: "🕋", 
-      subtitle: "Permit & Services", 
+      title: "Mosque Name", 
+      icon: "🕌", 
+      subtitle: "Al-Noor Mosque", 
       color: "bg-[#FDF8F3] text-[#8B7355]",
-      status: "Available",
-      tag: "Permit"
+      status: "Verified",
+      tag: "Info",
+      path: "/mosque-detail"
     },
     { 
-      title: "Rawdah Praying", 
-      icon: "🕌", 
-      subtitle: "Prophet's Mosque", 
+      title: "Salah Tracker", 
+      icon: "⏱️", 
+      subtitle: "Daily Prayer Log", 
       color: "bg-[#F0F7F4] text-[#2D5A47]",
-      status: "Book Now",
-      tag: "QR Entry"
+      status: "Check Now",
+      tag: "Tools",
+      path: "/salah-tracker"
     },
     { 
       title: "Hajj 1447", 
@@ -51,7 +54,8 @@ export default function Home() {
       subtitle: "Holy Pilgrimage", 
       color: "bg-[#F5F5FB] text-[#4A4E69]",
       status: "Registration Open",
-      tag: "Official"
+      tag: "Official",
+      path: "/service/hajj"
     },
   ];
 
@@ -68,12 +72,14 @@ export default function Home() {
         </div>
         
         <div className="flex gap-2.5">
-          <button className="p-2.5 bg-white rounded-2xl shadow-sm border border-slate-100 active:scale-95 transition-transform" data-testid="btn-info">
-            <Info size={18} className="text-slate-600" />
-          </button>
-          <button className="relative p-2.5 bg-white rounded-2xl shadow-sm border border-slate-100 active:scale-95 transition-transform" data-testid="btn-notifications">
-            <Bell size={18} className="text-slate-600" />
-            <span className="absolute top-2.5 right-2.5 w-2 h-2 bg-secondary rounded-full border-2 border-white"></span>
+          <button 
+            onClick={() => setLocation("/profile")}
+            className="p-1 bg-white rounded-2xl shadow-sm border border-slate-100 active:scale-95 transition-transform overflow-hidden" 
+            data-testid="btn-profile"
+          >
+            <div className="w-10 h-10 bg-slate-100 rounded-xl flex items-center justify-center text-primary text-xs font-bold">
+              AA
+            </div>
           </button>
         </div>
       </header>
@@ -100,13 +106,14 @@ export default function Home() {
         {/* Main Services Grid - nusuk style */}
         <section>
           <div className="flex justify-between items-center mb-5 px-1">
-            <h3 className="text-lg font-bold text-slate-900">Holy Sites Services</h3>
+            <h3 className="text-lg font-bold text-slate-900">Mosque Services</h3>
             <span className="text-[10px] font-bold text-secondary uppercase tracking-widest">Mandatory 2025</span>
           </div>
           <div className="grid grid-cols-1 gap-4">
             {mainServices.map((service, i) => (
               <motion.button 
                 key={service.title}
+                onClick={() => setLocation(service.path)}
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.1 }}
@@ -181,6 +188,7 @@ export default function Home() {
             {services.map((service) => (
               <motion.button
                 key={service.id}
+                onClick={() => setLocation(`/service/${service.id}`)}
                 whileTap={{ scale: 0.96 }}
                 className="bg-white p-6 rounded-[20px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-100 flex flex-col items-center justify-center text-center aspect-square transition-colors active:bg-slate-50 group"
                 data-testid={`home-service-card-${service.id}`}

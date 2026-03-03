@@ -8,6 +8,8 @@ import {
   Hash
 } from "lucide-react";
 
+import { useLocation } from "wouter";
+
 const services = [
   { id: 'tasbeeh', label: 'Tasbeeh', icon: Hash, color: 'text-blue-600', bgColor: 'bg-blue-50' },
   { id: 'duas', label: 'Duas', icon: BookOpen, label_en: 'Supplications', color: 'text-emerald-600', bgColor: 'bg-emerald-50' },
@@ -18,6 +20,8 @@ const services = [
 ];
 
 export default function Services() {
+  const [, setLocation] = useLocation();
+
   return (
     <div className="min-h-full bg-[#F8F9FA] pb-24">
       {/* Header Section */}
@@ -32,6 +36,7 @@ export default function Services() {
           {services.map((service) => (
             <motion.button
               key={service.id}
+              onClick={() => setLocation(`/service/${service.id}`)}
               whileTap={{ scale: 0.96 }}
               className="bg-white p-6 rounded-[20px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-slate-100 flex flex-col items-center justify-center text-center aspect-square transition-colors active:bg-slate-50 group"
               data-testid={`service-card-${service.id}`}

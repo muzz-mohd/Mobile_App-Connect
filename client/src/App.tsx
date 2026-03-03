@@ -11,6 +11,10 @@ import Timings from "./pages/Timings";
 import Community from "./pages/Community";
 import Programs from "./pages/Programs";
 import Services from "./pages/Services";
+import Profile from "./pages/Profile";
+import MosqueDetail from "./pages/MosqueDetail";
+import SalahTracker from "./pages/SalahTracker";
+import ServiceDetail from "./pages/ServiceDetail";
 
 function Router() {
   return (
@@ -21,6 +25,12 @@ function Router() {
         <Route path="/community" component={Community} />
         <Route path="/services" component={Services} />
         <Route path="/programs" component={Programs} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/mosque-detail" component={MosqueDetail} />
+        <Route path="/salah-tracker" component={SalahTracker} />
+        <Route path="/service/:type">
+          {(params) => <ServiceDetail title={params.type.charAt(0).toUpperCase() + params.type.slice(1)} />}
+        </Route>
         <Route component={NotFound} />
       </Switch>
     </MobileLayout>
