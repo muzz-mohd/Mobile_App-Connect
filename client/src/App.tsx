@@ -15,6 +15,8 @@ import Profile from "./pages/Profile";
 import MosqueDetail from "./pages/MosqueDetail";
 import SalahTracker from "./pages/SalahTracker";
 import ServiceDetail from "./pages/ServiceDetail";
+import Emergency from "./pages/Emergency";
+import Taawun from "./pages/Taawun";
 
 function Router() {
   return (
@@ -28,6 +30,8 @@ function Router() {
         <Route path="/profile" component={Profile} />
         <Route path="/mosque-detail" component={MosqueDetail} />
         <Route path="/salah-tracker" component={SalahTracker} />
+        <Route path="/emergency" component={Emergency} />
+        <Route path="/taawun" component={Taawun} />
         <Route path="/service/:type">
           {(params) => <ServiceDetail title={params.type.charAt(0).toUpperCase() + params.type.slice(1)} />}
         </Route>
