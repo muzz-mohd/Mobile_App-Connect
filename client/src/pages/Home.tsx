@@ -82,7 +82,7 @@ export default function Home() {
           <h1 className="text-2xl font-bold text-slate-900 font-heading tracking-tight">Masjid Connect</h1>
           <div className="flex items-center gap-1.5 mt-0.5">
             <div className="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse" />
-            <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Makkah Al Mukarramah</span>
+            <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider">Location</span>
           </div>
         </div>
         
@@ -98,7 +98,6 @@ export default function Home() {
           </button>
         </div>
       </header>
-
       <div className="px-6 space-y-8 mt-2">
         {/* Next Prayer Module - Modern White Marble */}
         <motion.button 
